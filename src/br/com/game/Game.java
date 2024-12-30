@@ -5,7 +5,10 @@
 package br.com.game;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
+import javax.swing.Timer;
 
 public class Game extends javax.swing.JFrame {
 
@@ -26,14 +29,21 @@ public class Game extends javax.swing.JFrame {
     private void initComponents() {
 
         jbButton = new javax.swing.JButton();
-        jlClickCount = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jlMoney = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jlLevel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Game");
+        setMinimumSize(new java.awt.Dimension(400, 300));
 
         jbButton.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jbButton.setText("Click me :)");
+        jbButton.setToolTipText("Click me :)");
+        jbButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbButton.setPreferredSize(new java.awt.Dimension(200, 100));
         jbButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbButtonMouseClicked(evt);
@@ -44,80 +54,100 @@ public class Game extends javax.swing.JFrame {
                 jbButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(jbButton, java.awt.BorderLayout.CENTER);
 
-        jlClickCount.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jlClickCount.setForeground(new java.awt.Color(0, 204, 0));
-        jlClickCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlMoney.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jlMoney.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlMoney.setText("$ 0");
+        jlMoney.setToolTipText("Money earned");
+        jlMoney.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jlMoney.setMaximumSize(new java.awt.Dimension(50, 50));
+        jlMoney.setMinimumSize(new java.awt.Dimension(50, 50));
+        jlMoney.setPreferredSize(new java.awt.Dimension(50, 50));
+        getContentPane().add(jlMoney, java.awt.BorderLayout.PAGE_START);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("$ 0");
+        jPanel2.setMaximumSize(new java.awt.Dimension(100, 100));
+        jPanel2.setMinimumSize(new java.awt.Dimension(100, 100));
+        jPanel2.setPreferredSize(new java.awt.Dimension(100, 100));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(jlClickCount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jlClickCount, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
+
+        jPanel3.setMaximumSize(new java.awt.Dimension(100, 100));
+        jPanel3.setMinimumSize(new java.awt.Dimension(100, 100));
+        jPanel3.setPreferredSize(new java.awt.Dimension(100, 100));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_END);
+
+        jlLevel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jlLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlLevel.setText("Level 1");
+        jlLevel.setMaximumSize(new java.awt.Dimension(50, 50));
+        jlLevel.setMinimumSize(new java.awt.Dimension(50, 50));
+        jlLevel.setPreferredSize(new java.awt.Dimension(50, 50));
+        getContentPane().add(jlLevel, java.awt.BorderLayout.PAGE_END);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbButtonActionPerformed
-        
+
     }//GEN-LAST:event_jbButtonActionPerformed
-    
-    protected Random generator = new Random();
-    int clicked = 0;
+
     private void jbButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbButtonMouseClicked
-        int x = (generator.nextInt(400));
-        int y = (generator.nextInt(300));
-        
-        jlClickCount.setText("+1");
-        jlClickCount.setBounds(x, y, 30, 30);
-        
         clicked++;
         getMoney(clicked);
         level(clicked);
     }//GEN-LAST:event_jbButtonMouseClicked
-     
+   
+    
+    
+    int clicked = 0;
+    int level = 1;
     public int level(int clicks){
-        int level = 1;
-        
-        if(clicks>=100){
+        if(clicks==100){
             level=2;
-            int aux = clicks;
-            boolean levelUp = true;
-                if(clicks>=(aux*2)){
-                    levelUp = true;
-                }
+            jlLevel.setText("Level "+String.valueOf(level));
         }
-        
         return level;
     }
     
+    int aux1 = 0;
+    int money = 0;
+    protected Random generator = new Random();
+    
     public void getMoney(int clicks){
         if(level(clicks)<=5){
-            int money = generator.nextInt(6);
+            aux1 = money;
+            money = aux1;
+            int moneyEarn = generator.nextInt(1,3);
+            money = money+moneyEarn;
+            jlMoney.setText("$ "+String.valueOf(money));
+        }
+        if(level(clicks)>5&&level(clicks)<=10){
+            int money = generator.nextInt(1, 5);
         }
     }
     
@@ -136,8 +166,10 @@ public class Game extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbButton;
-    private javax.swing.JLabel jlClickCount;
+    private javax.swing.JLabel jlLevel;
+    private javax.swing.JLabel jlMoney;
     // End of variables declaration//GEN-END:variables
 }
