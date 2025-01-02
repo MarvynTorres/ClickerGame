@@ -30,8 +30,12 @@ public class Game extends javax.swing.JFrame {
 
         jbButton = new javax.swing.JButton();
         jlMoney = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jpLeft = new javax.swing.JPanel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jlLevelPercent = new javax.swing.JLabel();
+        jpRight = new javax.swing.JPanel();
+        jlClicks = new javax.swing.JLabel();
+        jSplitPane2 = new javax.swing.JSplitPane();
         jlLevel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,39 +70,40 @@ public class Game extends javax.swing.JFrame {
         jlMoney.setPreferredSize(new java.awt.Dimension(50, 50));
         getContentPane().add(jlMoney, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setMaximumSize(new java.awt.Dimension(100, 100));
-        jPanel2.setMinimumSize(new java.awt.Dimension(100, 100));
-        jPanel2.setPreferredSize(new java.awt.Dimension(100, 100));
+        jpLeft.setMaximumSize(new java.awt.Dimension(100, 100));
+        jpLeft.setMinimumSize(new java.awt.Dimension(100, 100));
+        jpLeft.setPreferredSize(new java.awt.Dimension(100, 100));
+        jpLeft.setLayout(new java.awt.GridLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jSplitPane1.setMaximumSize(new java.awt.Dimension(10, 10));
+        jSplitPane1.setMinimumSize(new java.awt.Dimension(10, 10));
+        jSplitPane1.setPreferredSize(new java.awt.Dimension(10, 10));
+        jpLeft.add(jSplitPane1);
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
+        jlLevelPercent.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jlLevelPercent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlLevelPercent.setText("Level %: ");
+        jlLevelPercent.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jlLevelPercent.setMaximumSize(new java.awt.Dimension(60, 30));
+        jlLevelPercent.setMinimumSize(new java.awt.Dimension(60, 30));
+        jlLevelPercent.setPreferredSize(new java.awt.Dimension(60, 30));
+        jpLeft.add(jlLevelPercent);
 
-        jPanel3.setMaximumSize(new java.awt.Dimension(100, 100));
-        jPanel3.setMinimumSize(new java.awt.Dimension(100, 100));
-        jPanel3.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(jpLeft, java.awt.BorderLayout.LINE_START);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jpRight.setMaximumSize(new java.awt.Dimension(100, 100));
+        jpRight.setMinimumSize(new java.awt.Dimension(100, 100));
+        jpRight.setPreferredSize(new java.awt.Dimension(100, 100));
+        jpRight.setLayout(new java.awt.GridLayout());
 
-        getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_END);
+        jlClicks.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jlClicks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlClicks.setText("Clicks: 0");
+        jlClicks.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jpRight.add(jlClicks);
+        jpRight.add(jSplitPane2);
+
+        getContentPane().add(jpRight, java.awt.BorderLayout.LINE_END);
 
         jlLevel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jlLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -166,10 +171,14 @@ public class Game extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JButton jbButton;
+    private javax.swing.JLabel jlClicks;
     private javax.swing.JLabel jlLevel;
+    private javax.swing.JLabel jlLevelPercent;
     private javax.swing.JLabel jlMoney;
+    private javax.swing.JPanel jpLeft;
+    private javax.swing.JPanel jpRight;
     // End of variables declaration//GEN-END:variables
 }
