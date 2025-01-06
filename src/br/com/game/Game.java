@@ -85,10 +85,10 @@ public class Game extends javax.swing.JFrame {
         jpLeft.add(jlLevelPercent, java.awt.BorderLayout.CENTER);
 
         jbInfoMenu.setToolTipText("Player info menu.");
+        jbInfoMenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jbInfoMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbInfoMenu.setFocusPainted(false);
         jbInfoMenu.setFocusable(false);
-        jbInfoMenu.setLabel("");
         jbInfoMenu.setMaximumSize(new java.awt.Dimension(5, 10));
         jbInfoMenu.setMinimumSize(new java.awt.Dimension(5, 10));
         jbInfoMenu.setPreferredSize(new java.awt.Dimension(5, 10));
@@ -108,6 +108,7 @@ public class Game extends javax.swing.JFrame {
         jpRight.add(jlClicks, java.awt.BorderLayout.CENTER);
 
         jbShopMenu.setToolTipText("Buy upgrades and items!");
+        jbShopMenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jbShopMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbShopMenu.setFocusPainted(false);
         jbShopMenu.setFocusable(false);
@@ -115,6 +116,11 @@ public class Game extends javax.swing.JFrame {
         jbShopMenu.setMinimumSize(new java.awt.Dimension(5, 10));
         jbShopMenu.setPreferredSize(new java.awt.Dimension(5, 10));
         jbShopMenu.setRequestFocusEnabled(false);
+        jbShopMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbShopMenuActionPerformed(evt);
+            }
+        });
         jpRight.add(jbShopMenu, java.awt.BorderLayout.LINE_END);
 
         getContentPane().add(jpRight, java.awt.BorderLayout.LINE_END);
@@ -142,6 +148,10 @@ public class Game extends javax.swing.JFrame {
         getMoney(clicked);
         level(clicked);
     }//GEN-LAST:event_jbButtonMouseClicked
+
+    private void jbShopMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbShopMenuActionPerformed
+        new ShopMenu().setVisible(true);
+    }//GEN-LAST:event_jbShopMenuActionPerformed
    
     
     
@@ -174,7 +184,6 @@ public class Game extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
        FlatDarkLaf.setup();
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
