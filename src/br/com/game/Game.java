@@ -31,11 +31,11 @@ public class Game extends javax.swing.JFrame {
         jbButton = new javax.swing.JButton();
         jlMoney = new javax.swing.JLabel();
         jpLeft = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
         jlLevelPercent = new javax.swing.JLabel();
+        jbInfoMenu = new javax.swing.JButton();
         jpRight = new javax.swing.JPanel();
         jlClicks = new javax.swing.JLabel();
-        jSplitPane2 = new javax.swing.JSplitPane();
+        jbShopMenu = new javax.swing.JButton();
         jlLevel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,7 +44,7 @@ public class Game extends javax.swing.JFrame {
 
         jbButton.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jbButton.setText("Click me :)");
-        jbButton.setToolTipText("Click me :)");
+        jbButton.setToolTipText("");
         jbButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbButton.setPreferredSize(new java.awt.Dimension(200, 100));
@@ -63,7 +63,7 @@ public class Game extends javax.swing.JFrame {
         jlMoney.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jlMoney.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlMoney.setText("$ 0");
-        jlMoney.setToolTipText("Money earned");
+        jlMoney.setToolTipText("");
         jlMoney.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jlMoney.setMaximumSize(new java.awt.Dimension(50, 50));
         jlMoney.setMinimumSize(new java.awt.Dimension(50, 50));
@@ -73,41 +73,56 @@ public class Game extends javax.swing.JFrame {
         jpLeft.setMaximumSize(new java.awt.Dimension(100, 100));
         jpLeft.setMinimumSize(new java.awt.Dimension(100, 100));
         jpLeft.setPreferredSize(new java.awt.Dimension(100, 100));
-        jpLeft.setLayout(new java.awt.GridLayout());
+        jpLeft.setLayout(new java.awt.BorderLayout());
 
-        jSplitPane1.setMaximumSize(new java.awt.Dimension(10, 10));
-        jSplitPane1.setMinimumSize(new java.awt.Dimension(10, 10));
-        jSplitPane1.setPreferredSize(new java.awt.Dimension(10, 10));
-        jpLeft.add(jSplitPane1);
-
-        jlLevelPercent.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jlLevelPercent.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlLevelPercent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlLevelPercent.setText("Level %: ");
         jlLevelPercent.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jlLevelPercent.setMaximumSize(new java.awt.Dimension(60, 30));
         jlLevelPercent.setMinimumSize(new java.awt.Dimension(60, 30));
         jlLevelPercent.setPreferredSize(new java.awt.Dimension(60, 30));
-        jpLeft.add(jlLevelPercent);
+        jpLeft.add(jlLevelPercent, java.awt.BorderLayout.CENTER);
+
+        jbInfoMenu.setToolTipText("Player info menu.");
+        jbInfoMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbInfoMenu.setFocusPainted(false);
+        jbInfoMenu.setFocusable(false);
+        jbInfoMenu.setLabel("");
+        jbInfoMenu.setMaximumSize(new java.awt.Dimension(5, 10));
+        jbInfoMenu.setMinimumSize(new java.awt.Dimension(5, 10));
+        jbInfoMenu.setPreferredSize(new java.awt.Dimension(5, 10));
+        jpLeft.add(jbInfoMenu, java.awt.BorderLayout.LINE_START);
 
         getContentPane().add(jpLeft, java.awt.BorderLayout.LINE_START);
 
         jpRight.setMaximumSize(new java.awt.Dimension(100, 100));
         jpRight.setMinimumSize(new java.awt.Dimension(100, 100));
         jpRight.setPreferredSize(new java.awt.Dimension(100, 100));
-        jpRight.setLayout(new java.awt.GridLayout());
+        jpRight.setLayout(new java.awt.BorderLayout());
 
-        jlClicks.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jlClicks.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jlClicks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlClicks.setText("Clicks: 0");
         jlClicks.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jpRight.add(jlClicks);
-        jpRight.add(jSplitPane2);
+        jpRight.add(jlClicks, java.awt.BorderLayout.CENTER);
+
+        jbShopMenu.setToolTipText("Buy upgrades and items!");
+        jbShopMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbShopMenu.setFocusPainted(false);
+        jbShopMenu.setFocusable(false);
+        jbShopMenu.setMaximumSize(new java.awt.Dimension(5, 10));
+        jbShopMenu.setMinimumSize(new java.awt.Dimension(5, 10));
+        jbShopMenu.setPreferredSize(new java.awt.Dimension(5, 10));
+        jbShopMenu.setRequestFocusEnabled(false);
+        jpRight.add(jbShopMenu, java.awt.BorderLayout.LINE_END);
 
         getContentPane().add(jpRight, java.awt.BorderLayout.LINE_END);
 
         jlLevel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jlLevel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlLevel.setText("Level 1");
+        jlLevel.setToolTipText("");
         jlLevel.setMaximumSize(new java.awt.Dimension(50, 50));
         jlLevel.setMinimumSize(new java.awt.Dimension(50, 50));
         jlLevel.setPreferredSize(new java.awt.Dimension(50, 50));
@@ -123,6 +138,7 @@ public class Game extends javax.swing.JFrame {
 
     private void jbButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbButtonMouseClicked
         clicked++;
+        jlClicks.setText("Clicks: "+String.valueOf(clicked));
         getMoney(clicked);
         level(clicked);
     }//GEN-LAST:event_jbButtonMouseClicked
@@ -131,10 +147,12 @@ public class Game extends javax.swing.JFrame {
     
     int clicked = 0;
     int level = 1;
+    int aux = 50;
     public int level(int clicks){
-        if(clicks==100){
-            level=2;
+        if(clicks==(aux*2)){
+            level++;
             jlLevel.setText("Level "+String.valueOf(level));
+            aux = clicks;
         }
         return level;
     }
@@ -144,16 +162,11 @@ public class Game extends javax.swing.JFrame {
     protected Random generator = new Random();
     
     public void getMoney(int clicks){
-        if(level(clicks)<=5){
             aux1 = money;
             money = aux1;
             int moneyEarn = generator.nextInt(1,3);
             money = money+moneyEarn;
             jlMoney.setText("$ "+String.valueOf(money));
-        }
-        if(level(clicks)>5&&level(clicks)<=10){
-            int money = generator.nextInt(1, 5);
-        }
     }
     
     /**
@@ -171,9 +184,9 @@ public class Game extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JButton jbButton;
+    private javax.swing.JButton jbInfoMenu;
+    private javax.swing.JButton jbShopMenu;
     private javax.swing.JLabel jlClicks;
     private javax.swing.JLabel jlLevel;
     private javax.swing.JLabel jlLevelPercent;
