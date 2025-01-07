@@ -8,6 +8,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import javax.swing.JFrame;
 import javax.swing.Timer;
 
 public class Game extends javax.swing.JFrame {
@@ -116,6 +117,11 @@ public class Game extends javax.swing.JFrame {
         jbShopMenu.setMinimumSize(new java.awt.Dimension(5, 10));
         jbShopMenu.setPreferredSize(new java.awt.Dimension(5, 10));
         jbShopMenu.setRequestFocusEnabled(false);
+        jbShopMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbShopMenuMouseClicked(evt);
+            }
+        });
         jbShopMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbShopMenuActionPerformed(evt);
@@ -150,10 +156,13 @@ public class Game extends javax.swing.JFrame {
     }//GEN-LAST:event_jbButtonMouseClicked
 
     private void jbShopMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbShopMenuActionPerformed
-        new ShopMenu().setVisible(true);
-    }//GEN-LAST:event_jbShopMenuActionPerformed
    
-    
+    }//GEN-LAST:event_jbShopMenuActionPerformed
+
+    private void jbShopMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbShopMenuMouseClicked
+        
+    }//GEN-LAST:event_jbShopMenuMouseClicked
+
     
     int clicked = 0;
     int level = 1;
@@ -169,7 +178,7 @@ public class Game extends javax.swing.JFrame {
     
     int aux1 = 0;
     int money = 0;
-    protected Random generator = new Random();
+    protected Random generator = new Random(); 
     
     public void getMoney(int clicks){
             aux1 = money;
