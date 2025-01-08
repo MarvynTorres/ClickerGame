@@ -5,10 +5,11 @@
 package br.com.game;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
-import javax.swing.JFrame;
 import javax.swing.Timer;
 
 public class Game extends javax.swing.JFrame {
@@ -156,13 +157,19 @@ public class Game extends javax.swing.JFrame {
     }//GEN-LAST:event_jbButtonMouseClicked
 
     private void jbShopMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbShopMenuActionPerformed
-   
+        new ShopMenu().dispose();
+        new ShopMenu().setVisible(true);
+        System.out.println(String.valueOf(jbShopMenuGetPosition()));
     }//GEN-LAST:event_jbShopMenuActionPerformed
 
     private void jbShopMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbShopMenuMouseClicked
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jbShopMenuMouseClicked
-
+  
+    public static Point jbShopMenuGetPosition(){
+        Point jbShopMenuPosition = jbShopMenu.getLocationOnScreen();
+        return jbShopMenuPosition;
+    }
     
     int clicked = 0;
     int level = 1;
@@ -178,7 +185,7 @@ public class Game extends javax.swing.JFrame {
     
     int aux1 = 0;
     int money = 0;
-    protected Random generator = new Random(); 
+    protected Random generator = new Random();
     
     public void getMoney(int clicks){
             aux1 = money;
@@ -204,7 +211,7 @@ public class Game extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbButton;
     private javax.swing.JButton jbInfoMenu;
-    private javax.swing.JButton jbShopMenu;
+    private static javax.swing.JButton jbShopMenu;
     private javax.swing.JLabel jlClicks;
     private javax.swing.JLabel jlLevel;
     private javax.swing.JLabel jlLevelPercent;

@@ -1,17 +1,27 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package br.com.game;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.Point;
+import java.awt.Rectangle;
 
 
 public class ShopMenu extends javax.swing.JFrame {
 
-
+    
     public ShopMenu() {
         initComponents();
+        ShopMenuSetBounds(Game.jbShopMenuGetPosition());
     }
 
-
+    private void ShopMenuSetBounds(Point position){
+        this.setLocation(position);
+        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -34,9 +44,9 @@ public class ShopMenu extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
 
-        setBounds(500, 100, 216, 308);
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
