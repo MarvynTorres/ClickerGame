@@ -6,11 +6,7 @@ package br.com.game;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Random;
-import javax.swing.Timer;
 
 public class Game extends javax.swing.JFrame {
 
@@ -43,6 +39,7 @@ public class Game extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Game");
         setMinimumSize(new java.awt.Dimension(400, 300));
+        setResizable(false);
 
         jbButton.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jbButton.setText("Click me :)");
@@ -155,11 +152,20 @@ public class Game extends javax.swing.JFrame {
         getMoney(clicked);
         level(clicked);
     }//GEN-LAST:event_jbButtonMouseClicked
-
+    
+    static boolean isOpened = false;
+    
+    public static void changeShopMenuState(){
+        isOpened = false;
+    }
+    
     private void jbShopMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbShopMenuActionPerformed
-        new ShopMenu().dispose();
-        new ShopMenu().setVisible(true);
-        System.out.println(String.valueOf(jbShopMenuGetPosition()));
+        if(isOpened==false){
+            ShopMenu shopmenu = new ShopMenu();
+            shopmenu.setVisible(true);
+            isOpened = true;
+        }
+        
     }//GEN-LAST:event_jbShopMenuActionPerformed
 
     private void jbShopMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbShopMenuMouseClicked
