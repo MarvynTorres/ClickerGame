@@ -5,6 +5,8 @@
 package br.com.game;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -116,6 +118,11 @@ public class Game extends javax.swing.JFrame {
         jbShopMenu.setMinimumSize(new java.awt.Dimension(5, 10));
         jbShopMenu.setPreferredSize(new java.awt.Dimension(5, 10));
         jbShopMenu.setRequestFocusEnabled(false);
+        jbShopMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbShopMenuMouseClicked(evt);
+            }
+        });
         jbShopMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbShopMenuActionPerformed(evt);
@@ -150,10 +157,19 @@ public class Game extends javax.swing.JFrame {
     }//GEN-LAST:event_jbButtonMouseClicked
 
     private void jbShopMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbShopMenuActionPerformed
+        new ShopMenu().dispose();
         new ShopMenu().setVisible(true);
+        System.out.println(String.valueOf(jbShopMenuGetPosition()));
     }//GEN-LAST:event_jbShopMenuActionPerformed
-   
-    
+
+    private void jbShopMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbShopMenuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbShopMenuMouseClicked
+  
+    public static Point jbShopMenuGetPosition(){
+        Point jbShopMenuPosition = jbShopMenu.getLocationOnScreen();
+        return jbShopMenuPosition;
+    }
     
     int clicked = 0;
     int level = 1;
@@ -195,7 +211,7 @@ public class Game extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbButton;
     private javax.swing.JButton jbInfoMenu;
-    private javax.swing.JButton jbShopMenu;
+    private static javax.swing.JButton jbShopMenu;
     private javax.swing.JLabel jlClicks;
     private javax.swing.JLabel jlLevel;
     private javax.swing.JLabel jlLevelPercent;
