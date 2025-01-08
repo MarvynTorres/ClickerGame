@@ -6,20 +6,17 @@ package br.com.game;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.Point;
-import java.awt.Rectangle;
-
 
 public class ShopMenu extends javax.swing.JFrame {
-
     
     public ShopMenu() {
         initComponents();
-        ShopMenuSetBounds(Game.jbShopMenuGetPosition());
+        ShopMenuSetLocation(Game.jbShopMenuGetPosition());
     }
-
-    private void ShopMenuSetBounds(Point position){
+    boolean state = this.isActive();
+    private void ShopMenuSetLocation(Point position){
+        position.setLocation(position.getX(), position.getY()-81);
         this.setLocation(position);
-        
     }
     
     @SuppressWarnings("unchecked")
@@ -36,6 +33,11 @@ public class ShopMenu extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(200, 300));
         setPreferredSize(new java.awt.Dimension(200, 300));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.FlowLayout());
 
         jLabel1.setText("jLabel1");
@@ -44,9 +46,12 @@ public class ShopMenu extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
 
-        pack();
-        setLocationRelativeTo(null);
+        getAccessibleContext().setAccessibleName("shopmenu");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        Game.changeShopMenuState();
+    }//GEN-LAST:event_formWindowClosed
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
