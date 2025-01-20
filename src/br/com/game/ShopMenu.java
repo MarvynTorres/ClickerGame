@@ -13,7 +13,7 @@ public class ShopMenu extends javax.swing.JFrame {
         initComponents();
         ShopMenuSetLocation(Game.jbShopMenuGetPosition());
     }
-    boolean state = this.isActive();
+    
     private void ShopMenuSetLocation(Point position){
         position.setLocation(position.getX(), position.getY()-81);
         this.setLocation(position);
@@ -24,6 +24,7 @@ public class ShopMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -40,10 +41,28 @@ public class ShopMenu extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new java.awt.FlowLayout());
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("XP gain:");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setMaximumSize(new java.awt.Dimension(80, 30));
+        jLabel1.setMinimumSize(new java.awt.Dimension(80, 30));
+        jLabel1.setPreferredSize(new java.awt.Dimension(75, 30));
         getContentPane().add(jLabel1);
 
-        jLabel2.setText("jLabel2");
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setText("Up");
+        jButton1.setMaximumSize(new java.awt.Dimension(40, 25));
+        jButton1.setMinimumSize(new java.awt.Dimension(40, 25));
+        jButton1.setPreferredSize(new java.awt.Dimension(50, 25));
+        getContentPane().add(jButton1);
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Lvl 1");
+        jLabel2.setMaximumSize(new java.awt.Dimension(40, 30));
+        jLabel2.setMinimumSize(new java.awt.Dimension(40, 30));
+        jLabel2.setPreferredSize(new java.awt.Dimension(40, 30));
         getContentPane().add(jLabel2);
 
         getAccessibleContext().setAccessibleName("shopmenu");
@@ -63,6 +82,7 @@ public class ShopMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
